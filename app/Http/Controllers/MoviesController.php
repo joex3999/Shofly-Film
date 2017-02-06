@@ -74,10 +74,12 @@ class MoviesController extends Controller
         $user=Auth::user();
        
         $movies=DB::table('movies')->where('user_id', '=', $user->id)->get();
+
+        //$reviews = $user->movieuser;
         return view('movies', compact('movies'));
     }
 
-    public function delete(Request $request, $id)
+    public function delete(Request $request,   $id)
     {    
         $user=Auth::user();
         if(!(Auth::user()->admin))

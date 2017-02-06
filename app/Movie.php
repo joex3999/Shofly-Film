@@ -9,7 +9,7 @@ use App\actor;
 class Movie extends Model
 {
     public function reviewedBy(){
-    	return $this->hasMany(User::class);
+    	return $this->belongsToMany(User::class)->withPivot('text','date','rating')->withTimestamps();
     }
      public function addedBy(){ //admin function
         

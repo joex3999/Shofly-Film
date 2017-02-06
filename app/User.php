@@ -27,8 +27,8 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
-      public function reviewed(){
-        return $this->hasMany(Movie::class);
+   public function reviewed(){ 
+        return $this->belongsToMany(Movie::class)->withPivot('text','date','rating')->withTimestamps();
     }
     public function movies(){// the admin function . Should check this later to make sure this relation realtes only to the admin
         return $this->hasMany(Movie::class);

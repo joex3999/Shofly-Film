@@ -44,6 +44,16 @@ Route::patch('{user}/edit-info/email', 'UserController@updateEmail');
 Route::patch('{user}/edit-info/password', 'UserController@updatePassword');
 
 Route::get('{user}/reviews', 'UserController@reviews');
+
+
+//__________________________________________________________________//
+
+Route::get('review','ReviewsController@review');
+Route::post('Review/Post','ReviewsController@store');
+Route::get('/Reviews/{movie}/update','ReviewsController@edit');
+Route::patch('/Reviews/{movie}/update','ReviewsController@Update');
+Route::get('Review/Remove','ReviewsController@remove'); // Delete later 
+Route::delete('Reviews/{movie}/remove','ReviewsController@delete');
 });
 
 Auth::routes();

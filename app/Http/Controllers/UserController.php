@@ -66,6 +66,14 @@ class UserController extends Controller
     	return view('user.edit-info', compact('user'));
     }
 
+    public function reviews()
+    {
+        $user=Auth::user();
+       
+        $reviews=DB::table('movie_user')->where('user_id', '=', $user->id)->get();
+        return view('reviews', compact('reviews'));
+    }
+
     public function updatePassword (Request $request)
     {
     	$user=Auth::user();
